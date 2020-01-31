@@ -368,6 +368,7 @@ void osd_record_stop(void);
 
 void osd_ui_menu(const ui_menu_item *items, int numitems, int selected);
 void osd_ui_message(const char* text, int second);
+void osd_ui_message_clear(void);
 void osd_ui_osd(const char *text, int percentage, int default_percentage);
 void osd_ui_scroll(const char* text, int* pos);
 

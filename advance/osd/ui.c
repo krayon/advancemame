@@ -674,6 +674,13 @@ void advance_ui_message(struct advance_ui_context* context, const char* text, ..
 	va_end(arg);
 }
 
+void advance_ui_message_clear(struct advance_ui_context* context)
+{
+	context->state.ui_message_flag = 0;
+	context->state.ui_message_stop_time = 0; /* NOW */
+	context->state.ui_message_buffer[0] = '\0';
+}
+
 /**
  * Display a message.
  * This function cannot be called from the video thread.
@@ -1579,6 +1586,13 @@ void osd_ui_message(const char* s, int second)
 	struct advance_ui_context* context = &CONTEXT.ui;
 
 	advance_ui_message(context, "%s", s);
+}
+
+void osd_ui_message_clear()
+{
+	struct advance_ui_context* context = &CONTEXT.ui;
+
+	advance_ui_message_clear(context);
 }
 
 void osd_ui_menu(const ui_menu_item *items, int numitems, int selected)
