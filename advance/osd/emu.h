@@ -368,6 +368,7 @@ struct advance_ui_context {
 
 void advance_ui_message_va(struct advance_ui_context* context, const char* text, va_list arg);
 void advance_ui_message(struct advance_ui_context* context, const char* text, ...) __attribute__((format(printf, 2, 3)));
+void advance_ui_message_clear(struct advance_ui_context* context);
 void advance_ui_direct_text(struct advance_ui_context* context, const char* text);
 void advance_ui_direct_slow(struct advance_ui_context* context, int flag);
 void advance_ui_direct_fast(struct advance_ui_context* context, int flag);
