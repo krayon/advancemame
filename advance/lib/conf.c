@@ -2292,13 +2292,13 @@ adv_error conf_bool_section_get(adv_conf* context, const char* section, const ch
  * \param tag Tag to search.
  * \return The value got.
  */
-adv_bool conf_int_get_default(adv_conf* context, const char* tag)
+int conf_int_get_default(adv_conf* context, const char* tag)
 {
 	struct adv_conf_value_struct* value = value_searchbest_tag(context, (const char**)context->section_map, context->section_mac, tag);
 
 	assert_option_def(context, tag, conf_type_int, 1);
 
-	if (!value)
+	if (value == NULL)
 		return option_search_tag(context, tag)->data.base_int.def;
 
 	return value->data.int_value;
